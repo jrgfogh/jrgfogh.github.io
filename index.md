@@ -1,4 +1,3 @@
 ---
-title: Welcome to my blog
+title: Jørgen Fogh's Tech Blog
 ---
-
