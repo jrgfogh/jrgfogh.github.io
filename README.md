@@ -109,7 +109,7 @@ We need to use a blog-ready theme. For this activity, we will use a theme named 
   Historic note: previous version checked the homepage content was not empty.
 -->
 
-<details id=3 open>
+<details id=3>
 <summary><h2>Step 3: Customize your homepage</h2></summary>
 
 _Nice work setting the theme! :sparkles:_
@@ -181,7 +181,7 @@ For more information about configuring front matter, see the [Jekyll frontmatter
   Define terms and link to docs.github.com.
 -->
 
-<details id=5>
+<details id=5 open>
 <summary><h2>Step 5: Merge your pull request</h2></summary>
 
 _Nice work, friend :heart:! People will be reading your blog in no time!_
