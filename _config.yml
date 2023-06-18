@@ -2,3 +2,6 @@ theme: minima
 title: Jørgen Fogh's Tech Blog
 author: Jørgen Fogh
 description: Blog posts about technical issues
+collections:
+  posts:
+    permalink: /:categories/:title

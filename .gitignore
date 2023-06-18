@@ -35,3 +35,5 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+/.jekyll-cache
+/_site
