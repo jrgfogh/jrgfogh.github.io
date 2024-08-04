@@ -2,26 +2,28 @@
 
 Consider the following example:
 
-	#include <iostream>
+```c++
+#include <iostream>
 
-	template <typename T>
-	class Foo
+template <typename T>
+class Foo
+{
+public:
+	template <typename U>
+	Foo &operator=(Foo<U> const &that)
 	{
-	public:
-		template <typename U>
-		Foo &operator=(Foo<U> const &that)
-		{
-			std::cout << "Overloaded operator called!" << std::endl;
-			return *this;
-		}
-	};
-
-	int main(int argc, char **argv)
-	{
-		Foo<int> a;
-		Foo<int> b;
-		b = a; // Not a call to the overloaded assignment!
+		std::cout << "Overloaded operator called!" << std::endl;
+		return *this;
 	}
+};
+
+int main(int argc, char **argv)
+{
+	Foo<int> a;
+	Foo<int> b;
+	b = a; // Not a call to the overloaded assignment!
+}
+```
 
 You might expect this program to output `"Overloaded operator called!"`, since `a` is a valid argument for the templated assignment operator.
 Alas, the program outputs nothing.
@@ -36,9 +38,11 @@ In other words, another assignment operator is implicitly defined and it is this
 
 To get the expected behavior, simply delegate the copy assignment to the templated assignment operator:
 
-	Foo &operator=(Foo const &that)
-	{
-		return operator=<T>(that);
-	}
+```c++
+Foo &operator=(Foo const &that)
+{
+	return operator=<T>(that);
+}
+```
 
 This implementation ensures that both operators are always consistent.
